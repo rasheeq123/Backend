@@ -25,6 +25,18 @@ router.get('/getall', (req, res) => {
     });
 });
 
+router.get('/getbyid/:id', (req, res) => {
+    Model.findById(req.params.id)
+    .then((result)=>{            
+        res.json(result);
+    })
+    // agr operation 'findbyid' successfull hua to then chlega or fail hua to catch
+    .catch((err)=>{
+        res.json(err);
+    })
+    //res.send('response from user getbyid')
+});
+
 router.get('/getbybrand/:brand', (req,res)=>{   // "/: url parameter"
     console.log(req.params.brand);
     module.findOne({brand: req.params.brand})
@@ -38,7 +50,7 @@ router.get('/getbybrand/:brand', (req,res)=>{   // "/: url parameter"
 });
 
 router.get('/getbymodel/:model', (req, res) => {
-    Model.find({city: req.params.city})
+    Model.find({model: req.params.model})
     .then((result)=>{            
         res.json(result);
     })
@@ -48,8 +60,42 @@ router.get('/getbymodel/:model', (req, res) => {
     })
     
 });
-router.get('/getbymodel/:model', (req, res) => {
-    Model.find({city: req.params.city})
+router.get('/getbymodel/:playback', (req, res) => {
+    Model.find({playback: req.params.playback})
+    .then((result)=>{            
+        res.json(result);
+    })
+    
+    .catch((err)=>{
+        res.json(err);
+    })
+    
+});
+router.get('/getbyprice/:price', (req, res) => {
+    Model.find({price: req.params.price})
+    .then((result)=>{            
+        res.json(result);
+    })
+    
+    .catch((err)=>{
+        res.json(err);
+    })
+    
+});
+router.get('/getbycolor/:color', (req, res) => {
+    Model.find({color: req.params.color})
+    .then((result)=>{            
+        res.json(result);
+    })
+    
+    .catch((err)=>{
+        res.json(err);
+    })
+    
+});
+
+router.get('/getbyoffer/:offer', (req, res) => {
+    Model.find({offer: req.params.offer})
     .then((result)=>{            
         res.json(result);
     })
