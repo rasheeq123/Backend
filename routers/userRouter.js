@@ -25,7 +25,7 @@ router.get('/getall', (req, res) => {
 });
 router.get('/getbyemail/:email', (req,res)=>{   // "/: url parameter"
     console.log(req.params.email);
-    module.find({email: req.params.email})
+    module.findOne({email: req.params.email})
     .then((result)=>{
         res.json(result);
     }) .catch((err)=>{
@@ -34,12 +34,38 @@ router.get('/getbyemail/:email', (req,res)=>{   // "/: url parameter"
     
 })
 
-router.get('/getbyid', (req, res) => {
-    res.send('response from user getbyid')
+router.get('/getbyid/:id', (req, res) => {
+    Model.findById(req.params.id)
+    .then((result)=>{            
+        res.json(result);
+    })
+    // agr operation 'findbyid' successfull hua to then chlega or fail hua to catch
+    .catch((err)=>{
+        res.json(err);
+    })
+    //res.send('response from user getbyid')
 });
 
-router.get('/update', (req, res) => {
-    res.send('response from user update')
+router.get('/getbycity/:city', (req, res) => {
+    Model.find({city: req.params.city})
+    .then((result)=>{            
+        res.json(result);
+    })
+    
+    .catch((err)=>{
+        res.json(err);
+    })
+    
+});
+
+router.put('/update/:id', (req, res) => {
+    Model.findByIdAndUpdate(req.params.id, req.body) //req,params.id islie taaki hum id se data access kr ske
+    .then((result)=>{
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.json(err);
+    });
 });
 
 router.get('/delete', (req, res) => {
