@@ -2,13 +2,19 @@
 const express = require('express'); // backend me ais hi import krte h unlike react 
 const userRouter=require('./routers/userRouter');
 const productRouter=require('./routers/productRouter');
+const cors = require('cors');
 
 // initialize express
 const app=express();
 const port= 5000;
 
 //middleware: request aane pe uska data access kr skte h, modify krte h lekin response nhi generate kr skte h routes ki trh
-app.use(express.json());
+app.use(express.json());  
+
+app.use(cors({
+    origin:['http://localhost:3000']
+}));
+
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 
