@@ -60,7 +60,7 @@ router.get('/getbycity/:city', (req, res) => {
 });
 
 router.put('/update/:id', (req, res) => {
-    Model.findByIdAndUpdate(req.params.id, req.body) //req,params.id islie taaki hum id se data access kr ske
+    Model.findByIdAndUpdate(req.params.id, req.body, {new:true}) // (new:true updates data dikhaega) , req,params.id islie taaki hum id se data access kr ske
     .then((result)=>{
         res.json(result);
     })
@@ -69,8 +69,14 @@ router.put('/update/:id', (req, res) => {
     });
 });
 
-router.get('/delete', (req, res) => {
-    res.send('response from user delete')
+router.delete('/delete/:id', (req, res) => {
+   Model.findByIdAndDelete(req.params.id)
+   .then((result)=>{
+    res.json(result);
+   })
+   .catch((err)=>{
+    res.json(err);
+   });
 });
 
 module.exports = router;
