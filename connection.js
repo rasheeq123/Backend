@@ -8,7 +8,7 @@ mongoose.connect(url)
 .then((result) => {    // jab successful ho jae
     console.log('database connected')
     
-}).catch((err) => {   // jab error aa jae 
+}).catch((err) => {   // jab error aa jae udhr
     console.log(err);
     
 });
