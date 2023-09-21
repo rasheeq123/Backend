@@ -11,7 +11,7 @@ mongoose.connect(url)
 }).catch((err) => {   // jab error aa jae udhr
     console.log(err);
     
-});
+}) ;
 console.log('another statement'); 
 module.exports = mongoose;
 
