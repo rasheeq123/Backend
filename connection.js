@@ -14,4 +14,5 @@ mongoose.connect(url)
 }) ;
 console.log('another statement'); 
 module.exports = mongoose;
+// conntext API: koi context kisi respective component me pass krne ke lie 
 
