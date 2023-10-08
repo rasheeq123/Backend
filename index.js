@@ -16,7 +16,7 @@ app.use(cors({
 }));
 
 app.use('/user', userRouter);
-app.use('/product', productRouter);
+app.use('/earbuds', productRouter);
 
 //routes-request aane pe response generate krte h
 app.get('/', (req , res)=>{
