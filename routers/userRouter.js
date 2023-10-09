@@ -32,8 +32,7 @@ router.get('/getbyemail/:email', (req,res)=>{   // "/: url parameter"
         res.json(result);
     }) .catch((err)=>{
         res.json(err);
-    });
-    
+    });  
 })
 
 router.get('/getbyid/:id', (req, res) => {
