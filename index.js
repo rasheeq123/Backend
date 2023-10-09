@@ -34,6 +34,8 @@ app.get('/getall', (req , res)=>{
     res.send('response from getall')
 });
 
+
+
 app.get('/getbyid', (req , res)=>{
     res.send('response from getbyid')
 });
